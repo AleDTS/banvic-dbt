@@ -1,4 +1,4 @@
-Welcome to your new dbt project!
+Este é um repositório para o teste de uma vaga, a documentação e o contexto estão em PDF na raiz do projeto.
 
 ### Using the starter project
 
