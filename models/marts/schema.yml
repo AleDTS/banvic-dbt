@@ -1,0 +1,63 @@
+version: 2
+ 
+models:
+  - name: dim_clientes
+    columns:
+      - name: cod_cliente
+        tests:
+          - unique
+          - not_null
+  - name: dim_colaboradores
+    columns:
+      - name: cod_colaborador
+        tests:
+          - unique
+          - not_null
+  - name: dim_datas
+    columns:
+      - name: data_dia
+        tests:
+          - unique
+          - not_null
+  - name: fct_transacoes
+    columns:
+      - name: cod_transacao
+        tests:
+          - unique
+          - not_null
+          - relationships:
+              to: dim_clientes.cod_cliente
+              field: cod_cliente
+      - name: cod_colaborador
+        tests:
+          - not_null
+          - relationships:
+              to: dim_colaboradores.cod_colaborador
+              field: cod_colaborador
+      - name: data_transacao_dia 
+        tests:
+          - not_null
+          - relationships:
+              to: dim_datas.data_dia
+              field: data_dia
+  - name: fct_propostas_credito
+    columns:
+      - name: cod_proposta
+        tests:
+          - unique
+          - not_null
+          - relationships:
+              to: dim_clientes.cod_cliente
+              field: cod_cliente
+      - name: cod_colaborador
+        tests:
+          - not_null
+          - relationships:
+              to: dim_colaboradores.cod_colaborador
+              field: cod_colaborador
+      - name: data_entrada_proposta_dia 
+        tests:
+          - not_null
+          - relationships:
+              to: dim_datas.data_dia
+              field: data_dia

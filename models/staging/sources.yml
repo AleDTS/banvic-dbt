@@ -1,0 +1,49 @@
+version: 2
+
+sources:
+  - name: banvic_erp
+    schema: banvic_erp
+    description: Essa é a fonte de dados do nosso ERP
+    tables:
+      - name: agencias
+        columns:
+          - name: cod_agencia
+            tests:
+              - unique
+              - not_null
+      - name: clientes
+        columns:
+          - name: cod_cliente
+            tests:
+              - unique
+              - not_null
+      - name: colaborador_agencia
+        columns:
+          - name: cod_colaborador
+            tests:
+              - unique
+              - not_null
+      - name: colaboradores
+        columns:
+          - name: cod_colaborador
+            tests:
+              - unique
+              - not_null
+      - name: contas
+        columns:
+          - name: num_conta
+            tests:
+              - unique
+              - not_null
+      - name: propostas_credito
+        columns:
+          - name: cod_proposta
+            tests:
+              - unique
+              - not_null
+      - name: transacoes
+        columns:
+          - name: cod_transacao
+            tests:
+              - unique
+              - not_null
